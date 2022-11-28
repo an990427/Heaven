@@ -48,14 +48,14 @@ class RecipeBoardEditActivity : AppCompatActivity() {
 
     private fun editBoard2Data(key : String){
 
-//        FBRef.boardRef2
-//            .child(key)
-//            .setValue(
-//                RecipeBoardModel(binding.titleArea.text.toString(),
-//                    binding.contentArea.text.toString(),
-//                    writerUid,
-//                    FBAuth.getTime())
-//            )
+        FBRef.boardRef2
+            .child(key)
+            .setValue(
+                RecipeBoardModel(binding.titleArea.text.toString(),
+                    binding.contentArea.text.toString(),
+                    writerUid,
+                    FBAuth.getTime())
+            )
 
         Toast.makeText(this, "수정완료", Toast.LENGTH_LONG).show()
 
@@ -66,46 +66,46 @@ class RecipeBoardEditActivity : AppCompatActivity() {
     private fun getImage2Data(key : String){
 
         // Reference to an image file in Cloud Storage
-//        val storageReference = Firebase.storage.reference.child(key + ".png")
-//
-//        // ImageView in your Activity
-//        val imageViewFromFB = binding.imageArea
-//
-//        storageReference.downloadUrl.addOnCompleteListener(OnCompleteListener { task ->
-//            if(task.isSuccessful) {
-//
-//                Glide.with(this)
-//                    .load(task.result)
-//                    .into(imageViewFromFB)
-//
-//            } else {
-//
-//            }
-//        })
+        val storageReference = Firebase.storage.reference.child(key + ".png")
+
+        // ImageView in your Activity
+        val imageViewFromFB = binding.imageArea
+
+        storageReference.downloadUrl.addOnCompleteListener(OnCompleteListener { task ->
+            if(task.isSuccessful) {
+
+                Glide.with(this)
+                    .load(task.result)
+                    .into(imageViewFromFB)
+
+            } else {
+
+            }
+        })
 
 
     }
 
     private fun getBoard2Data(key : String){
 
-//        val postListener = object : ValueEventListener {
-//            override fun onDataChange(dataSnapshot: DataSnapshot) {
-//
-//                val dataModel = dataSnapshot.getValue(RecipeBoardModel::class.java)
-//
-//                binding.titleArea.setText(dataModel?.title)
-//                binding.contentArea.setText(dataModel?.content)
-//                writerUid = dataModel!!.uid
-//
-//            }
-//
-//            override fun onCancelled(databaseError: DatabaseError) {
-//                // Getting Post failed, log a message
-//                Log.w(TAG, "loadPost:onCancelled", databaseError.toException())
-//            }
-//        }
-//
-//        FBRef.boardRef2.child(key).addValueEventListener(postListener)
+        val postListener = object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+
+                val dataModel = dataSnapshot.getValue(RecipeBoardModel::class.java)
+
+                binding.titleArea.setText(dataModel?.title)
+                binding.contentArea.setText(dataModel?.content)
+                writerUid = dataModel!!.uid
+
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                // Getting Post failed, log a message
+                Log.w(TAG, "loadPost:onCancelled", databaseError.toException())
+            }
+        }
+
+        FBRef.boardRef2.child(key).addValueEventListener(postListener)
 
     }
 }

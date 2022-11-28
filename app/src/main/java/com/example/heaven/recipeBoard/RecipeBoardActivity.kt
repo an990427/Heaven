@@ -43,12 +43,9 @@ class RecipeBoardActivity : AppCompatActivity() {
 
         binding.boardListView2.setOnItemClickListener { parent, view, position, id ->
 
-
-//            val intent = Intent(this, RecipeBoardInsideActivity::class.java)
-//            intent.putExtra("key", boardKeyList[position])
-//            startActivity(intent)
-
-            RecipeBoardDetail(id)
+            val intent = Intent(this, RecipeBoardInsideActivity::class.java)
+            intent.putExtra("key", boardKeyList[position])
+            startActivity(intent)
 
         }
 
@@ -63,67 +60,37 @@ class RecipeBoardActivity : AppCompatActivity() {
 
     private fun getFBBoardData(){
 
-//        val postListener = object : ValueEventListener {
-//            override fun onDataChange(dataSnapshot: DataSnapshot) {
-//
-//                boardDataList.clear()
-//
-//                for (dataModel2 in dataSnapshot.children) {
-//
-//                    Log.d(TAG, dataModel2.toString())
-////                    dataModel.key
-//
-//                    val item = dataModel2.getValue(RecipeBoardModel::class.java)
-//                    boardDataList.add(item!!)
-//                    boardKeyList.add(dataModel2.key.toString())
-//
-//                }
-//                boardKeyList.reverse()
-//                boardDataList.reverse()
-//                boardRVAdapter.notifyDataSetChanged()
-//
-//                Log.d(TAG, boardDataList.toString())
-//
-//
-//            }
-//
-//            override fun onCancelled(databaseError: DatabaseError) {
-//                // Getting Post failed, log a message
-//                Log.w(TAG, "loadPost:onCancelled", databaseError.toException())
-//            }
-//        }
-//        FBRef.boardRef2.addValueEventListener(postListener)
+        val postListener = object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
 
-    }
+                boardDataList.clear()
 
-    private fun RecipeBoardDetail(id:Long) {
-        Log.w("BoardDetail", "RecipeBoardDetail")
-        val url = URL("http://10.0.2.2:8080/recipeboard_detail?id=$id")
-        Thread{
-            try{
-                Log.w("connect", "success")
+                for (dataModel2 in dataSnapshot.children) {
 
-                val connection = url.openConnection() as HttpURLConnection
+                    Log.d(TAG, dataModel2.toString())
+//                    dataModel.key
 
-                val streamReader = InputStreamReader(connection.inputStream)
-                val buffered = BufferedReader(streamReader)
+                    val item = dataModel2.getValue(RecipeBoardModel::class.java)
+                    boardDataList.add(item!!)
+                    boardKeyList.add(dataModel2.key.toString())
 
-                val content = StringBuilder()
-                while (true) {
-                    val data = buffered.readLine() ?: break
-                    content.append(data)
                 }
+                boardKeyList.reverse()
+                boardDataList.reverse()
+                boardRVAdapter.notifyDataSetChanged()
 
-                Log.w("message", content.toString())
-                val intent = Intent(this, RecipeBoardInsideActivity::class.java)
-                intent.putExtra("id",id)
-                startActivity(intent)
-                finish()
+                Log.d(TAG, boardDataList.toString())
 
-            }catch (e:Exception){
-                e.printStackTrace()
+
             }
-        }.start()
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                // Getting Post failed, log a message
+                Log.w(TAG, "loadPost:onCancelled", databaseError.toException())
+            }
+        }
+        FBRef.boardRef2.addValueEventListener(postListener)
 
     }
+
 }

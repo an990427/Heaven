@@ -87,28 +87,28 @@ class HomeFragment : Fragment() {
     private fun getCategoryData(){
 
         val postListener = object : ValueEventListener {
-//            override fun onDataChange(dataSnapshot: DataSnapshot) {
-//
-//                for (dataModel in dataSnapshot.children) {
-//
-//                    val item = dataModel.getValue(ContentModel::class.java)
-//
-//                    items.add(item!!)
-//                    itemKeyList.add(dataModel.key.toString())
-//
-//
-//                }
-//                rvAdapter.notifyDataSetChanged()
-//
-//            }
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
 
-//            override fun onCancelled(databaseError: DatabaseError) {
-//                // Getting Post failed, log a message
-//                Log.w("ContentListActivity", "loadPost:onCancelled", databaseError.toException())
-//            }
-//        }
-//        FBRef.category1.addValueEventListener(postListener)
-//        FBRef.category2.addValueEventListener(postListener)
+                for (dataModel in dataSnapshot.children) {
+
+                    val item = dataModel.getValue(ContentModel::class.java)
+
+                    items.add(item!!)
+                    itemKeyList.add(dataModel.key.toString())
+
+
+                }
+                rvAdapter.notifyDataSetChanged()
+
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                // Getting Post failed, log a message
+                Log.w("ContentListActivity", "loadPost:onCancelled", databaseError.toException())
+            }
+        }
+        FBRef.category1.addValueEventListener(postListener)
+        FBRef.category2.addValueEventListener(postListener)
 
     }
 

@@ -44,11 +44,9 @@ class FreeBoardActivity : AppCompatActivity() {
 
         binding.boardListView.setOnItemClickListener { parent, view, position, id ->
 
-//            val intent = Intent(this, FreeBoardInsideActivity::class.java)
-//            intent.putExtra("key", boardKeyList[position])
-//            startActivity(intent)
-
-            FreeBoardDetail(id)
+            val intent = Intent(this, FreeBoardInsideActivity::class.java)
+            intent.putExtra("key", boardKeyList[position])
+            startActivity(intent)
 
         }
 
@@ -63,68 +61,37 @@ class FreeBoardActivity : AppCompatActivity() {
 
     private fun getFBBoardData(){
 
-//        val postListener = object : ValueEventListener {
-//            override fun onDataChange(dataSnapshot: DataSnapshot) {
-//
-//                boardDataList.clear()
-//
-//                for (dataModel in dataSnapshot.children) {
-//
-//                    Log.d(TAG, dataModel.toString())
-////                    dataModel.key
-//
-//                    val item = dataModel.getValue(FreeBoardModel::class.java)
-//                    boardDataList.add(item!!)
-//                    boardKeyList.add(dataModel.key.toString())
-//
-//                }
-//                boardKeyList.reverse()
-//                boardDataList.reverse()
-//                boardRVAdapter.notifyDataSetChanged()
-//
-//                Log.d(TAG, boardDataList.toString())
-//
-//
-//            }
-//
-//            override fun onCancelled(databaseError: DatabaseError) {
-//                // Getting Post failed, log a message
-//                Log.w(TAG, "loadPost:onCancelled", databaseError.toException())
-//            }
-//        }
-//        FBRef.boardRef.addValueEventListener(postListener)
+        val postListener = object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
 
-    }
+                boardDataList.clear()
 
-    private fun FreeBoardDetail(id:Long) {
-        Log.w("BoardDetail", "FreeBoardDetail")
-        val url = URL("http://10.0.2.2:8080/freeboard_detail?id=$id")
-        Thread{
-            try{
-                Log.w("connect", "success")
+                for (dataModel in dataSnapshot.children) {
 
-                val connection = url.openConnection() as HttpURLConnection
+                    Log.d(TAG, dataModel.toString())
+//                    dataModel.key
 
-                val streamReader = InputStreamReader(connection.inputStream)
-                val buffered = BufferedReader(streamReader)
+                    val item = dataModel.getValue(FreeBoardModel::class.java)
+                    boardDataList.add(item!!)
+                    boardKeyList.add(dataModel.key.toString())
 
-                val content = StringBuilder()
-                while (true) {
-                    val data = buffered.readLine() ?: break
-                    content.append(data)
                 }
+                boardKeyList.reverse()
+                boardDataList.reverse()
+                boardRVAdapter.notifyDataSetChanged()
 
-                Log.w("message", content.toString())
+                Log.d(TAG, boardDataList.toString())
 
-                val intent = Intent(this, FreeBoardInsideActivity::class.java)
-                startActivity(intent)
-                intent.putExtra("id",id)
-                finish()
 
-            }catch (e:Exception){
-                e.printStackTrace()
             }
-        }.start()
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                // Getting Post failed, log a message
+                Log.w(TAG, "loadPost:onCancelled", databaseError.toException())
+            }
+        }
+        FBRef.boardRef.addValueEventListener(postListener)
 
     }
+
 }

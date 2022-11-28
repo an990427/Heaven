@@ -35,9 +35,9 @@ class MyrecipeBoardListLVAdapter(val boardList : MutableList<MyrecipeBoardModel>
         val content = view?.findViewById<TextView>(R.id.contentArea)
         val time = view?.findViewById<TextView>(R.id.timeArea)
 
-//        if(boardList[position].uid.equals(FBAuth.getUid())) {
-//            itemLinearLayoutView?.setBackgroundColor(Color.parseColor("#ffa500"))
-//        }
+        if(boardList[position].uid.equals(FBAuth.getUid())) {
+            itemLinearLayoutView?.setBackgroundColor(Color.parseColor("#ffa500"))
+        }
 
         title!!.text = boardList[position].title
         content!!.text = boardList[position].content

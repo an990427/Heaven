@@ -68,23 +68,21 @@ class ContentRVAdapter(val context : Context,
                 Log.d("ContentRVAdapter", FBAuth.getUid())
                 Toast.makeText(context, key, Toast.LENGTH_LONG).show()
 
-                bookmarkCheck()
+                if(bookmarkIdList.contains(key)) {
+                    // 북마크가 있을 때 삭제
+                    FBRef.bookmarkRef
+                        .child(FBAuth.getUid())
+                        .child(key)
+                        .removeValue()
 
-//                if(bookmarkIdList.contains(key)) {
-//                    // 북마크가 있을 때 삭제
-//                    FBRef.bookmarkRef
-//                        .child(FBAuth.getUid())
-//                        .child(key)
-//                        .removeValue()
-//
-//                } else {
-//                    // 북마크가 없을 때
-//                    FBRef.bookmarkRef
-//                        .child(FBAuth.getUid())
-//                        .child(key)
-//                        .setValue(BookmarkModel(true))
-//
-//                }
+                } else {
+                    // 북마크가 없을 때
+                    FBRef.bookmarkRef
+                        .child(FBAuth.getUid())
+                        .child(key)
+                        .setValue(BookmarkModel(true))
+
+                }
 
             }
 
@@ -95,33 +93,6 @@ class ContentRVAdapter(val context : Context,
                 .into(imageViewArea)
 
         }
-
-    }
-
-    private fun bookmarkCheck() {
-        Log.w("bookmarkcheck", "bookmarkcheck")
-        val url = URL("http://10.0.2.2:8080/recipe_bookmark?id=1")
-        Thread{
-            try{
-                Log.w("connect", "success")
-
-                val connection = url.openConnection() as HttpURLConnection
-
-                val streamReader = InputStreamReader(connection.inputStream)
-                val buffered = BufferedReader(streamReader)
-
-                val content = StringBuilder()
-                while (true) {
-                    val data = buffered.readLine() ?: break
-                    content.append(data)
-                }
-
-                Log.w("message", content.toString())
-
-            }catch (e:Exception){
-                e.printStackTrace()
-            }
-        }.start()
 
     }
 

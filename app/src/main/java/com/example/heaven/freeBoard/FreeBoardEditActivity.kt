@@ -48,14 +48,14 @@ class FreeBoardEditActivity : AppCompatActivity() {
 
     private fun editBoardData(key : String){
 
-//        FBRef.boardRef
-//            .child(key)
-//            .setValue(
-//                FreeBoardModel(binding.titleArea.text.toString(),
-//                    binding.contentArea.text.toString(),
-//                    writerUid,
-//                    FBAuth.getTime())
-//            )
+        FBRef.boardRef
+            .child(key)
+            .setValue(
+                FreeBoardModel(binding.titleArea.text.toString(),
+                    binding.contentArea.text.toString(),
+                    writerUid,
+                    FBAuth.getTime())
+            )
 
         Toast.makeText(this, "수정완료", Toast.LENGTH_LONG).show()
 
@@ -66,45 +66,45 @@ class FreeBoardEditActivity : AppCompatActivity() {
     private fun getImageData(key : String){
 
         // Reference to an image file in Cloud Storage
-//        val storageReference = Firebase.storage.reference.child(key + ".png")
-//
-//        // ImageView in your Activity
-//        val imageViewFromFB = binding.imageArea
-//
-//        storageReference.downloadUrl.addOnCompleteListener(OnCompleteListener { task ->
-//            if(task.isSuccessful) {
-//
-//                Glide.with(this)
-//                    .load(task.result)
-//                    .into(imageViewFromFB)
-//
-//            } else {
-//
-//            }
-//        })
+        val storageReference = Firebase.storage.reference.child(key + ".png")
+
+        // ImageView in your Activity
+        val imageViewFromFB = binding.imageArea
+
+        storageReference.downloadUrl.addOnCompleteListener(OnCompleteListener { task ->
+            if(task.isSuccessful) {
+
+                Glide.with(this)
+                    .load(task.result)
+                    .into(imageViewFromFB)
+
+            } else {
+
+            }
+        })
 
 
     }
 
     private fun getBoardData(key : String){
 
-//        val postListener = object : ValueEventListener {
-//            override fun onDataChange(dataSnapshot: DataSnapshot) {
-//
-//                val dataModel = dataSnapshot.getValue(FreeBoardModel::class.java)
-//
-//                binding.titleArea.setText(dataModel?.title)
-//                binding.contentArea.setText(dataModel?.content)
-//                writerUid = dataModel!!.uid
-//
-//            }
-//
-//            override fun onCancelled(databaseError: DatabaseError) {
-//                // Getting Post failed, log a message
-//                Log.w(TAG, "loadPost:onCancelled", databaseError.toException())
-//            }
-//        }
-//        FBRef.boardRef.child(key).addValueEventListener(postListener)
+        val postListener = object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+
+                val dataModel = dataSnapshot.getValue(FreeBoardModel::class.java)
+
+                binding.titleArea.setText(dataModel?.title)
+                binding.contentArea.setText(dataModel?.content)
+                writerUid = dataModel!!.uid
+
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                // Getting Post failed, log a message
+                Log.w(TAG, "loadPost:onCancelled", databaseError.toException())
+            }
+        }
+        FBRef.boardRef.child(key).addValueEventListener(postListener)
     }
 
 }
