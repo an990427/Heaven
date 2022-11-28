@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
+import com.example.heaven.GoThinqAppActivity
 import com.example.heaven.R
 import com.example.heaven.contentsList.ContentListActivity
 import com.example.heaven.databinding.FragmentTipBinding
@@ -42,7 +43,11 @@ class TipFragment : Fragment() {
             val intent = Intent(context, ContentListActivity::class.java)
             intent.putExtra("category", "category2")
             startActivity(intent)
+        }
 
+        binding.tip1.setOnClickListener {
+            val intent = Intent(context, GoThinqAppActivity::class.java)
+            startActivity(intent)
         }
 
         binding.homeTap.setOnClickListener {

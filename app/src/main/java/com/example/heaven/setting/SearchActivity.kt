@@ -20,11 +20,7 @@ import java.net.URL
 
 class SearchActivity : AppCompatActivity() {
 
-    private lateinit var binding : ActivitySearchBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
-
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_search)
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)

@@ -3,7 +3,9 @@
     package="com.example.heaven">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <queries>
+        <package android:name="com.lgeha.nuts" />
+    </queries>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -43,6 +45,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
+        <activity android:name=".GoThinqAppActivity" >
+        </activity>
     </application>
 
 </manifest>

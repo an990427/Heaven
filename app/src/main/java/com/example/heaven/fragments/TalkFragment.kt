@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
+import com.example.heaven.GoThinqAppActivity
 import com.example.heaven.R
 import com.example.heaven.myrecipeboard.MyrecipeBoardActivity
 import com.example.heaven.freeBoard.FreeBoardActivity
@@ -44,6 +45,11 @@ class TalkFragment : Fragment() {
 
         binding.talk3.setOnClickListener {
             val intent = Intent(context, MyrecipeBoardActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.talk4.setOnClickListener {
+            val intent = Intent(context, GoThinqAppActivity::class.java)
             startActivity(intent)
         }
 
