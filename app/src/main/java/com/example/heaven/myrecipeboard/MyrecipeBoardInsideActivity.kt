@@ -182,7 +182,9 @@ class MyrecipeBoardInsideActivity : AppCompatActivity() {
                     Log.d(TAG, dataModel!!.title)
 
                     binding.titleArea.text = dataModel!!.title
-                    binding.textArea.text = dataModel!!.content
+                    binding.cateArea.text = dataModel!!.cate
+                    binding.ingrediArea.text = dataModel!!.ingredi
+                    binding.progressArea.text = dataModel!!.progress
                     binding.timeArea.text = dataModel!!.time
 
                     val myUid = FBAuth.getUid()

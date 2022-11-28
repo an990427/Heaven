@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.example.heaven.R
@@ -30,15 +32,25 @@ class MyrecipeBoardWriteActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_myrecipe_board_write)
 
+        val cate = arrayOf("메인디쉬","간편식","반찬","찌개","국물","디저트","빵","샐러드","기타")
+
+        val cateSpinner: Spinner = binding.catespinner
+
+        val adapter: ArrayAdapter<String> = ArrayAdapter(this, android.R.layout.simple_list_item_1, cate)
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+        cateSpinner.adapter = adapter
+
         binding.writeBtn.setOnClickListener {
 
             val title = binding.titleArea.text.toString()
-            val content = binding.contentArea.text.toString()
+            val cate = binding.catespinner.selectedItem.toString()
+            val ingredi = binding.ingredientArea.text.toString()
+            val progress = binding.progressArea.text.toString()
             val uid = FBAuth.getUid()
             val time = FBAuth.getTime()
 
-            Log.d(TAG, title)
-            Log.d(TAG, content)
 
             // 파이어베이스 store에 이미지를 저장하고 싶습니다
             // 만약에 내가 게시글을 클릭했을 때, 게시글에 대한 정보를 받아와야 하는데
@@ -49,7 +61,7 @@ class MyrecipeBoardWriteActivity : AppCompatActivity() {
 
             FBRef.boardRef3
                 .child(key)
-                .setValue(MyrecipeBoardModel(title, content, uid, time))
+                .setValue(MyrecipeBoardModel(title, cate, ingredi, progress, uid, time))
 
             Toast.makeText(this, "게시글 입력 완료", Toast.LENGTH_LONG).show()
 

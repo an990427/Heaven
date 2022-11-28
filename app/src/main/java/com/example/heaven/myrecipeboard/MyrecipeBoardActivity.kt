@@ -38,6 +38,10 @@ class MyrecipeBoardActivity : AppCompatActivity() {
         boardRVAdapter = MyrecipeBoardListLVAdapter(boardDataList)
         binding.boardListView3.adapter = boardRVAdapter
 
+        binding.myrecipebookmarkArea.setOnClickListener {
+            val intent = Intent(this, MyrecipeBookmarkActivity::class.java)
+            startActivity(intent)
+        }
 
         binding.boardListView3.setOnItemClickListener { parent, view, position, id ->
 

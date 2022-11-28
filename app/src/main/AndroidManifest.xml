@@ -3,9 +3,11 @@
     package="com.example.heaven">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <queries>
         <package android:name="com.lgeha.nuts" />
     </queries>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -14,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Heaven"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".myrecipeboard.MyrecipeBookmarkActivity"
+            android:exported="true" />
         <activity android:name=".HistoryActivity" />
         <activity android:name=".setting.ConnectActivity" />
         <activity android:name=".myrecipeboard.MyrecipeBoardWriteActivity" />
@@ -45,8 +50,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".GoThinqAppActivity" >
-        </activity>
+        <activity android:name=".GoThinqAppActivity"></activity>
     </application>
 
 </manifest>
