@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import com.example.heaven.GoThinqAppActivity
 import com.example.heaven.MainActivity
 import com.example.heaven.R
 import com.example.heaven.databinding.ActivityIntroBinding
@@ -25,6 +26,11 @@ class IntroActivity : AppCompatActivity() {
         auth = Firebase.auth
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_intro)
+
+        binding.adverArea.setOnClickListener {
+            val intent = Intent(this, GoThinqAppActivity::class.java)
+            startActivity(intent)
+        }
 
         binding.loginBtn.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)

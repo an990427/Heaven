@@ -18,7 +18,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="북 마 크 된   공 유 레 시 피"
+            android:text="스 크 랩 한   게 시 물"
             android:textSize="25sp"
             android:textStyle="bold"
             android:textColor="#fff"
