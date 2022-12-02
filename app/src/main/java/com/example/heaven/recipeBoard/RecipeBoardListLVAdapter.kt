@@ -32,7 +32,7 @@ class RecipeBoardListLVAdapter(val boardList : MutableList<RecipeBoardModel>) : 
 
         val itemLinearLayoutView = view?.findViewById<LinearLayout>(R.id.itemView)
         val title = view?.findViewById<TextView>(R.id.titleArea)
-        val content = view?.findViewById<TextView>(R.id.contentArea)
+        val cate = view?.findViewById<TextView>(R.id.cateArea)
         val time = view?.findViewById<TextView>(R.id.timeArea)
 
         if(boardList[position].uid.equals(FBAuth.getUid())) {
@@ -40,7 +40,7 @@ class RecipeBoardListLVAdapter(val boardList : MutableList<RecipeBoardModel>) : 
         }
 
         title!!.text = boardList[position].title
-        content!!.text = boardList[position].content
+        cate!!.text = boardList[position].cate
         time!!.text = boardList[position].time
 
         return view!!

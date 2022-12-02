@@ -52,7 +52,9 @@ class RecipeBoardEditActivity : AppCompatActivity() {
             .child(key)
             .setValue(
                 RecipeBoardModel(binding.titleArea.text.toString(),
-                    binding.contentArea.text.toString(),
+                    binding.catespinner.selectedItem.toString(),
+                    binding.ingredientArea.text.toString(),
+                    binding.progressArea.text.toString(),
                     writerUid,
                     FBAuth.getTime())
             )
@@ -94,9 +96,10 @@ class RecipeBoardEditActivity : AppCompatActivity() {
                 val dataModel = dataSnapshot.getValue(RecipeBoardModel::class.java)
 
                 binding.titleArea.setText(dataModel?.title)
-                binding.contentArea.setText(dataModel?.content)
+//                binding.catespinner.setSelection(dataModel?.cate)
+                binding.ingredientArea.setText(dataModel?.ingredi)
+                binding.titleArea.setText(dataModel?.title)
                 writerUid = dataModel!!.uid
-
             }
 
             override fun onCancelled(databaseError: DatabaseError) {

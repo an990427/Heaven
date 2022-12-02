@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/jaejunisland/AndroidStudioProjects/11.28/Heaven/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/jaejunisland/AndroidStudioProjects/11.28/Heaven/app/src/main/res/drawable/ic_launcher_background.xml" value="0.26979166666666665" />
         <entry key="..\:/Users/jaejunisland/AndroidStudioProjects/11.28/Heaven/app/src/main/res/layout/activity_content_list.xml" value="0.24230072463768115" />
         <entry key="..\:/Users/jaejunisland/AndroidStudioProjects/11.28/Heaven/app/src/main/res/layout/activity_free_board.xml" value="0.12335359675785208" />
         <entry key="..\:/Users/jaejunisland/AndroidStudioProjects/11.28/Heaven/app/src/main/res/layout/activity_free_board_edit.xml" value="0.23641304347826086" />
@@ -14,17 +16,19 @@
         <entry key="..\:/Users/jaejunisland/AndroidStudioProjects/11.28/Heaven/app/src/main/res/layout/activity_join.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/jaejunisland/AndroidStudioProjects/11.28/Heaven/app/src/main/res/layout/activity_login.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/jaejunisland/AndroidStudioProjects/11.28/Heaven/app/src/main/res/layout/activity_myrecipe_board.xml" value="0.2" />
-        <entry key="..\:/Users/jaejunisland/AndroidStudioProjects/11.28/Heaven/app/src/main/res/layout/activity_myrecipe_board_edit.xml" value="0.22916666666666666" />
+        <entry key="..\:/Users/jaejunisland/AndroidStudioProjects/11.28/Heaven/app/src/main/res/layout/activity_myrecipe_board_edit.xml" value="0.1" />
         <entry key="..\:/Users/jaejunisland/AndroidStudioProjects/11.28/Heaven/app/src/main/res/layout/activity_myrecipe_board_inside.xml" value="0.2513586956521739" />
         <entry key="..\:/Users/jaejunisland/AndroidStudioProjects/11.28/Heaven/app/src/main/res/layout/activity_myrecipe_board_write.xml" value="0.22916666666666666" />
         <entry key="..\:/Users/jaejunisland/AndroidStudioProjects/11.28/Heaven/app/src/main/res/layout/activity_myrecipe_bookmark.xml" value="0.2513586956521739" />
         <entry key="..\:/Users/jaejunisland/AndroidStudioProjects/11.28/Heaven/app/src/main/res/layout/activity_recipe_board.xml" value="0.10925925925925926" />
         <entry key="..\:/Users/jaejunisland/AndroidStudioProjects/11.28/Heaven/app/src/main/res/layout/activity_recipe_board_edit.xml" value="0.10925925925925926" />
-        <entry key="..\:/Users/jaejunisland/AndroidStudioProjects/11.28/Heaven/app/src/main/res/layout/activity_recipe_board_write.xml" value="0.2513586956521739" />
+        <entry key="..\:/Users/jaejunisland/AndroidStudioProjects/11.28/Heaven/app/src/main/res/layout/activity_recipe_board_inside.xml" value="0.1" />
+        <entry key="..\:/Users/jaejunisland/AndroidStudioProjects/11.28/Heaven/app/src/main/res/layout/activity_recipe_board_write.xml" value="0.1" />
         <entry key="..\:/Users/jaejunisland/AndroidStudioProjects/11.28/Heaven/app/src/main/res/layout/activity_search.xml" value="0.245018115942029" />
         <entry key="..\:/Users/jaejunisland/AndroidStudioProjects/11.28/Heaven/app/src/main/res/layout/activity_splash.xml" value="0.23550724637681159" />
         <entry key="..\:/Users/jaejunisland/AndroidStudioProjects/11.28/Heaven/app/src/main/res/layout/board_list_item.xml" value="0.23641304347826086" />
         <entry key="..\:/Users/jaejunisland/AndroidStudioProjects/11.28/Heaven/app/src/main/res/layout/comment_list_item.xml" value="0.23550724637681159" />
+        <entry key="..\:/Users/jaejunisland/AndroidStudioProjects/11.28/Heaven/app/src/main/res/layout/content_rv_item.xml" value="0.24230072463768115" />
         <entry key="..\:/Users/jaejunisland/AndroidStudioProjects/11.28/Heaven/app/src/main/res/layout/fragment_bookmark.xml" value="0.2513586956521739" />
         <entry key="..\:/Users/jaejunisland/AndroidStudioProjects/11.28/Heaven/app/src/main/res/layout/fragment_home.xml" value="0.23550724637681159" />
         <entry key="..\:/Users/jaejunisland/AndroidStudioProjects/11.28/Heaven/app/src/main/res/layout/fragment_store.xml" value="0.23550724637681159" />
@@ -81,6 +85,7 @@
         <entry key="..\:/Users/jaejunisland/AndroidStudioProjects/Heaven/app/src/main/res/layout/fragment_store.xml" value="0.1" />
         <entry key="..\:/Users/jaejunisland/AndroidStudioProjects/Heaven/app/src/main/res/layout/fragment_talk.xml" value="0.264" />
         <entry key="..\:/Users/jaejunisland/AndroidStudioProjects/Heaven/app/src/main/res/layout/fragment_tip.xml" value="0.264" />
+        <entry key="..\:/Users/jaejunisland/AppData/Local/Android/Sdk/platforms/android-33/data/res/layout/simple_list_item_1.xml" value="0.1" />
       </map>
     </option>
   </component>
